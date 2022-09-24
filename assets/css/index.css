@@ -1,0 +1,5 @@
+.carousel-item img{
+	filter: opacity(50%);
+	filter: contrast(50%);
+	filter: brightness(50%);
+}
