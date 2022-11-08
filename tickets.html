@@ -89,36 +89,41 @@
 	<section id="comprar" class="container mt-3">
 		<div class="row">
 			<div class="col col-lg-7 mx-auto">
-				<form class="d-grid">
+				<form id="formularioCompra" class="d-grid needs-validation" novalidate>
 					<div class="row gy-2">
 						<div class="col-12 col-md-6">
-							<input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre">
+							<input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" required>
+							<div class="invalid-feedback">Ingresá tu nombre</div>
 						</div>
 						<div class="col-12 col-md-6">
-							<input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido">
+							<input id="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" required>
+							<div class="invalid-feedback">Ingresá tu apellido</div>
 						</div>
 						<div class="col-12">
-							<input id="email" type="email" class="form-control" placeholder="Correo" aria-label="Correo">
+							<input id="email" type="email" class="form-control" placeholder="Correo" aria-label="Correo" required>
+							<div class="invalid-feedback">Ingresá tu e-mail</div>
 						</div>
 					</div>
 					<div class="row gy-2 mt-2">
 						<div class="col-12 col-md-6">
 							<label for="cantidad" class="form-label">Cantidad de entradas</label>
-							<input type="text" inputmode="numeric" pattern="[0-9]" class="form-control" id="cantidad" placeholder="Cantidad">
+							<input type="text" inputmode="numeric" pattern="[0-9]" class="form-control" id="cantidad" placeholder="Cantidad" required>
+							<div class="invalid-feedback">Ingresá la cantidad de entradas requeridas</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<label for="categoria" class="form-label">Categoría</label>
-							<select id="categoria" class="form-select" aria-label="Default select example">
-								<option selected>Elegí tu categoría</option>
+							<select id="categoria" class="form-select" aria-label="Default select example" required>
+								<option selected disabled value="">Elegí tu categoría</option>
 								<option value="1">Estudiante</option>
 								<option value="2">Trainee</option>
 								<option value="3">Junior</option>
-							  </select>
+							</select>
+							<div class="invalid-feedback">Elegí tu categoría</div>
 						</div>
 					</div>
 					<div class="row mt-4">
 						<div class="col-12">
-							<div class="alert alert-primary mb-0" role="alert">Total a pagar: $<span id="total"></span></div>
+							<div id="totalPagar" class="alert alert-primary mb-0 d-none" role="alert">Total a pagar: $</div>
 						</div>
 					</div>
 	
