@@ -9,36 +9,7 @@
   </head>
   <body>
     <header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-			  <a class="navbar-brand" href="index.html">
-				<img src="assets/img/codoacodo.png" alt="Codo a Codo" width="105" height="60" class="d-inline-block align-text-middle">
-				Conf Bs As
-			  </a>
-			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-				  <li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="index.html#carouselExampleCaptions">La conferencia</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="index.html#oradores">Los oradores</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="index.html#lugar">El lugar y la fecha</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="index.html#sumate">Conviértete en orador</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link text-success" href="tickets.html#info_tickets">Comprar tickets</a>
-				  </li>
-				</ul>
-			  </div>
-			</div>
-		  </nav>
+		<?php include 'modulos/nav.php'; ?>
 	</header>
 
 	<main id="info_tickets" class="container">
@@ -143,32 +114,7 @@
 	</section>
 
 	<footer class="mt-3 bg-dark bg-gradient text-light p-4">
-		<div class="container w-75">
-			<div class="row d-flex align-items-center">
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Preguntas frecuentes</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Contáctanos</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Prensa</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Conferencias</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Términos y condiciones</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Privacidad</a>
-				</div>
-				<div class="col text-center">
-					<a class="link-light text-decoration-none" href="#">Estudiantes</a>
-				</div>
-			</div>
-		
-		</div>
+		<?php include 'modulos/footer.php'; ?>
 	</footer>
 
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
