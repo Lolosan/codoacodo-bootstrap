@@ -66,8 +66,8 @@ function volver_al_login( $mensaje )
 
 function destruir_cookies()
 {
-	setcookie(session_name(), null, -1, '/'); 
-	setcookie('ingresado', null, -1, '/'); 
+	setcookie(session_name(), '', -1, '/'); 
+	setcookie('ingresado', '', -1, '/'); 
 	session_destroy();
 
 	return;

@@ -18,3 +18,4 @@ $mensaje = [
 	'texto'	=> 'Saliste de tu cuenta!'
 ];
 volver_al_login( $mensaje );
+exit();

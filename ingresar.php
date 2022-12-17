@@ -1,6 +1,5 @@
 <?php
 include_once 'funciones/funciones.php';
-
 ?><!doctype html>
 <html lang="es">
   <head>
@@ -30,11 +29,11 @@ include_once 'funciones/funciones.php';
 					<div class="row gy-3">
 						<div class="col-12 col-md-6">
 							<input id="nombre" name="crear_nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" required>
-							<div class="invalid-feedback">Ingresá tu nombre</div>
+							<div class="invalid-feedback">El nombre debe tener al menos dos letras</div>
 						</div>
 						<div class="col-12 col-md-6">
 							<input id="apellido" name="crear_apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" required>
-							<div class="invalid-feedback">Ingresá tu apellido</div>
+							<div class="invalid-feedback">El apellido debe tener al menos dos letras</div>
 						</div>
 						<div class="col-12">
 							<input id="email" name="crear_email" type="email" class="form-control" placeholder="Correo" aria-label="Correo" required>
@@ -42,7 +41,7 @@ include_once 'funciones/funciones.php';
 						</div>
 						<div class="col-12">
 							<input id="password" name="crear_password" type="password" class="form-control" placeholder="Password" aria-label="Password" required>
-							<div class="invalid-feedback">Ingresá tu password</div>
+							<div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres</div>
 						</div>
 					</div>
 					<div class="row mt-4">
@@ -55,14 +54,14 @@ include_once 'funciones/funciones.php';
 					</div>
 				</form>
 
-				<form action="mi-cuenta.php" method="POST" id="form_cuenta_ingresar" class="d-grid needs-validation" novalidate>
+				<form action="mi-cuenta.php" method="POST" id="form_cuenta_ingresar" class="needs-validation d-grid" novalidate>
 					<div class="row gy-3">
 						<div class="col-12">
-							<input id="email" name="ingresar_email" type="email" class="form-control" placeholder="Correo" aria-label="Correo" required>
+							<input id="ingresar_email" name="ingresar_email" type="email" class="form-control" placeholder="Correo" aria-label="Correo" required>
 							<div class="invalid-feedback">Ingresá tu e-mail</div>
 						</div>
 						<div class="col-12">
-							<input id="password" name="ingresar_password" type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+							<input id="ingresar_password" name="ingresar_password" type="password" class="form-control" placeholder="Password" aria-label="Password" required>
 							<div class="invalid-feedback">Ingresá tu password</div>
 						</div>
 					</div>
@@ -96,6 +95,6 @@ include_once 'funciones/funciones.php';
 	</footer>
 
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
-	<script src="assets/js/login.js"></script>
+	<script src="assets/js/ingresar.js"></script>
   </body>
 </html>
