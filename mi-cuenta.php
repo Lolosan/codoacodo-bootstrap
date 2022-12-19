@@ -19,27 +19,6 @@ if ( ! $usuario_valido )
 $usuarios_totales = $db->get_usuarios_totales();
 $usuarios = $db->get_usuarios();
 
-$limit = $db->limite_default();
-$offset = $db->offset_default();
-$pagina_actual = 1;
-$paginas_totales = intval($usuarios_totales / $limit) + 1;
-
-$url = $db->array_url();
-
-if( isset($_GET['pagina']) )
-{
-	$pagina_actual = $db->limpiar_input( intval($_GET['pagina']) );
-}
-/*
-if( isset( $_GET['limit'] ) )
-{
-	$limit = $db->limpiar_input( intval($_GET['limit']) );
-}
-if( isset( $_GET['offset'] ) )
-{
-	$offset = $db->limpiar_input( intval($_GET['offset']) );
-}
-*/
 
 ?>
 <!doctype html>
@@ -82,7 +61,10 @@ if( isset( $_GET['offset'] ) )
 			</div>
 		</div>
 		<div class="row align-items-center justify-content-center">
-			<div class="col-8">
+			<div class="col-12 text-center">
+				<h2>Listando <span id="usuarios_actuales" class="text-success"><?php echo $usuarios->num_rows; ?></span> de <span id="usuarios_totales" class="text-info"><?php echo $usuarios_totales; ?></span> usuarios</h2>
+			</div>
+			<div class="col-8 mt-4">
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -116,40 +98,7 @@ if( isset( $_GET['offset'] ) )
 		</div>
 		<div class="row">
 			<div class="col-12 my-5">
-				<nav id="paginacion" aria-label="Paginación">
-					<ul class="pagination justify-content-center">
-						<li class="page-item <?php if( $pagina_actual == 1 ){echo 'disabled';} ?>">
-							<a class="page-link" href="<?php echo $url . '?pagina=1&limit=' . $limit . '&offset=0';?>">Primera</a>
-						</li>
-						<?php
-						foreach( range(1, $paginas_totales) as $pagina )
-						{
-							if( $pagina_actual == $pagina )
-							{
-								$activa = 'active';
-							}else
-							{
-								$activa = false;
-							}
-
-							$usaroffset = ( $offset - $limit ) + ( $limit * $pagina) ;
-
-							$url_link = $url . '?pagina=' . $pagina . '&limit=' . $limit . '&offset=' . $usaroffset;
-
-
-							?>
-							<li class="page-item <?php echo $activa; ?>">
-								<a class="page-link" href="<?php echo $url_link ?>"><?php echo $pagina; ?></a>
-							</li>
-
-							<?php
-						}
-						?>
-						<li class="page-item <?php if( $pagina_actual == $paginas_totales ){echo 'disabled';} ?>">
-							<a class="page-link" href="<?php echo $url . '?pagina=' . $paginas_totales . '&limit=' . $limit . '&offset=' . $usaroffset?>">Última</a>
-						</li>
-					</ul>
-				</nav>
+				<?php include 'modulos/paginacion.php'; ?>
 			</div>
 		</div>
 	</main>

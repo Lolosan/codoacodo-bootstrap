@@ -270,12 +270,15 @@ function then_ok_buscar( usuarios )
 {
 	let tbody = document.getElementById('tbody');
 	let paginacion = document.getElementById('paginacion');
+	let usuarios_actuales = document.getElementById('usuarios_actuales');
 
 	tbody.innerHTML = '';
 
 	usuarios.forEach(usuario => {
 		then_ok_crear( usuario );
 	});
+
+	usuarios_actuales.innerText = usuarios.length;
 
 	paginacion.classList.add('d-none');
 }

@@ -585,25 +585,6 @@ class db
 	{
 		return $this->offset_default;
 	}
-
-	public function array_url()
-	{
-		if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
-		{
-			$protocolo = "https://";
-		}else
-		{
-			$protocolo = "http://";
-		}
-		$dominio = $_SERVER['HTTP_HOST'];
-
-		$uri = explode( '?', $_SERVER['REQUEST_URI'] );
-
-		$uri_pura = $protocolo . $dominio . $uri[0];
-
-		return $uri_pura;
-	}
-
 }
 
 $db = new db();
