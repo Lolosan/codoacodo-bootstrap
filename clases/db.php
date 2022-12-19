@@ -413,13 +413,19 @@ class db
 		{
 			$termino = $this->limpiar_input( $buscar->input );
 
-			$query = "SELECT id, nombre, apellido, correo FROM usuarios WHERE ";
-			$query .= "id LIKE '%$termino%'";
-			$query .= " OR nombre LIKE '%$termino%'";
-			$query .= " OR apellido LIKE '%$termino%'";
-			$query .= " OR correo LIKE '%$termino%'";
-
-			$resultados = $this->hacer_query( $query );
+			if( $termino == 'limpiar_busqueda' )
+			{
+				$resultados = $this->get_usuarios();
+			}else
+			{
+				$query = "SELECT id, nombre, apellido, correo FROM usuarios WHERE ";
+				$query .= "id LIKE '%$termino%'";
+				$query .= " OR nombre LIKE '%$termino%'";
+				$query .= " OR apellido LIKE '%$termino%'";
+				$query .= " OR correo LIKE '%$termino%'";
+	
+				$resultados = $this->hacer_query( $query );
+			}
 
 			if( $resultados->num_rows >= 1 )
 			{

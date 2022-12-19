@@ -61,8 +61,13 @@ $usuarios = $db->get_usuarios();
 			</div>
 		</div>
 		<div class="row align-items-center justify-content-center">
-			<div class="col-12 text-center">
-				<h2>Listando <span id="usuarios_actuales" class="text-success"><?php echo $usuarios->num_rows; ?></span> de <span id="usuarios_totales" class="text-info"><?php echo $usuarios_totales; ?></span> usuarios</h2>
+			<div class="col-12 d-flex justify-content-center align-items-center gap-3">
+				<div>
+					<h2 class="text-center">Listando <span id="usuarios_actuales" class="text-success"><?php echo $usuarios->num_rows	; ?></span> de <span id="usuarios_totales" class="text-info"><?php echo $usuarios_totales; ?></span> usuarios</h2>
+				</div>
+				<div>
+					<button id="limpiar_busqueda" type="button" class="d-none btn btn-outline-secondary btn-sm">Limpiar búsqueda</button>
+				</div>
 			</div>
 			<div class="col-8 mt-4">
 				<table class="table table-striped">

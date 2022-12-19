@@ -6,11 +6,14 @@ if ( window.history.replaceState )
 
 let botones = document.querySelectorAll('.api');
 let buscar = document.getElementById('buscar_usuario');
+let btn_limpiar_busqueda = document.getElementById('limpiar_busqueda');
 
 botones.forEach(boton => {
 	boton.addEventListener( 'click', ejecutar_tarea, false );
 });
 buscar.addEventListener( 'submit', ejecutar_tarea, false );
+
+btn_limpiar_busqueda.addEventListener('click', limpiar_busqueda, false);
 
 function ejecutar_tarea( boton )
 {
@@ -194,9 +197,6 @@ function ejecutar_tarea( boton )
 			break;
 	}
 
-
-
-
 	return;
 }
 
@@ -271,6 +271,7 @@ function then_ok_buscar( usuarios )
 	let tbody = document.getElementById('tbody');
 	let paginacion = document.getElementById('paginacion');
 	let usuarios_actuales = document.getElementById('usuarios_actuales');
+	let btn_limpiar_busqueda = document.getElementById('limpiar_busqueda');
 
 	tbody.innerHTML = '';
 
@@ -280,7 +281,16 @@ function then_ok_buscar( usuarios )
 
 	usuarios_actuales.innerText = usuarios.length;
 
-	paginacion.classList.add('d-none');
+	if( paginacion.classList.contains('limpiando_busqueda') )
+	{
+		paginacion.classList.remove('limpiando_busqueda');
+	}else
+	{
+		paginacion.classList.add('d-none');
+		btn_limpiar_busqueda.classList.remove('d-none');
+	}
+
+	return;
 }
 
 function then_ok_crear( usuario )
@@ -404,3 +414,22 @@ function preparar_html_editar( usuario )
 	return html;
 }
 
+function limpiar_busqueda(e)
+{
+	let buscar = {
+		accion: 'buscar',
+		input: 'limpiar_busqueda',
+	}
+
+	let paginacion = document.getElementById('paginacion');
+	let btn_limpiar_busqueda = document.getElementById('limpiar_busqueda');
+	
+	paginacion.classList.add('limpiando_busqueda');
+	paginacion.classList.remove('d-none');
+
+	btn_limpiar_busqueda.classList.add('d-none');
+
+	hacer_fetch( buscar );
+
+	return;
+}
