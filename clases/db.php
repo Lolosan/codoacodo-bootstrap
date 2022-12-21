@@ -39,8 +39,6 @@ class db
 		$this->conexion = new mysqli($this->hostname, $this->user, $this->pass, $this->db);
 
 		if($this->conexion->connect_errno){
-			die("Error de conexión: (" . $this->conexion->connect_error . ")" . $this->conexion->connect_errno);
-
 			$mensaje = 'Ups, hubo un error con la base de datos' . PHP_EOL;
 			$mensaje =  "(" . $this->conexion->connect_error . ")" . $this->conexion->connect_errno . PHP_EOL;
 			$mensaje .= 'Contactar a Leo!!!!';

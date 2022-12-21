@@ -5,7 +5,8 @@ $limit = $db->limite_default();
 $offset = $db->offset_default();
 $pagina_actual = 1;
 $paginas_totales = intval($usuarios_totales / $limit) + 1;
-
+$url_anterior = '#';
+$url_siguiente = '#';
 
 if( isset($_GET['pagina']) )
 {
@@ -42,9 +43,9 @@ foreach( range(1, $paginas_totales) as $pagina )
 		$url_siguiente = $url_link;
 	}
 
-	$paginacion[] = '<li class="page-item '. $activa .'">';
-	$paginacion[] .= 	'<a class="page-link" href="'. $url_link .'">'. $pagina .'</a>';
-	$paginacion[] .= '</li>';
+	$paginacion[$pagina] = '<li class="page-item '. $activa .'">';
+	$paginacion[$pagina] .= 	'<a class="page-link" href="'. $url_link .'">'. $pagina .'</a>';
+	$paginacion[$pagina] .= '</li>';
 }
 
 
